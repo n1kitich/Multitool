@@ -40,66 +40,60 @@ class MotionInfoViewCellViewModel: MotionInfoViewCellViewModelType {
     }
     
     var firstIndicator: String? {
-        guard let deviceMotion = deviceMotion else { return nil}
+        var value: Double = 0.0
+        guard let deviceMotion = deviceMotion else { return "\(value)" }
+        
         switch motionSensor {
         case .acceleration:
-            let value = deviceMotion.userAcceleration.x
-            return "\(preciseRound(value, precision: .thousands))"
+            value = deviceMotion.userAcceleration.x
         case .gyroscope:
-            let value = deviceMotion.rotationRate.x
-            return "\(preciseRound(value, precision: .thousands))"
+            value = deviceMotion.rotationRate.x
         case .magneticField:
-            let value = deviceMotion.magneticField.field.x
-            return "\(preciseRound(value, precision: .thousands))"
+            value = deviceMotion.magneticField.field.x
         case .attitude:
-            let value = deviceMotion.attitude.pitch
-            return "\(preciseRound(value, precision: .thousands))"
+            value = deviceMotion.attitude.pitch
         case .gravity:
-            let value = deviceMotion.gravity.x
-            return "\(preciseRound(value, precision: .thousands))"
+            value = deviceMotion.gravity.x
         }
+        return "\(preciseRound(value, precisionDouble: 10000))"
     }
     
     var secondIndicator: String? {
-        guard let deviceMotion = deviceMotion else { return nil}
+        var value: Double = 0.0
+        guard let deviceMotion = deviceMotion else { return "\(value)" }
+        
         switch motionSensor {
         case .acceleration:
-            let value = deviceMotion.userAcceleration.y
-            return "\(preciseRound(value, precision: .thousands))"
+            value = deviceMotion.userAcceleration.y
         case .gyroscope:
-            let value = deviceMotion.rotationRate.y
-            return "\(preciseRound(value, precision: .thousands))"
+            value = deviceMotion.rotationRate.y
         case .magneticField:
-            let value = deviceMotion.magneticField.field.y
-            return "\(preciseRound(value, precision: .thousands))"
+            value = deviceMotion.magneticField.field.y
         case .attitude:
-            let value = deviceMotion.attitude.roll
-            return "\(preciseRound(value, precision: .thousands))"
+            value = deviceMotion.attitude.roll
         case .gravity:
-            let value = deviceMotion.gravity.z
-            return "\(preciseRound(value, precision: .thousands))"
+            value = deviceMotion.gravity.z
         }
+        return "\(preciseRound(value, precisionDouble: 10000))"
     }
     
     var thirdIndicator: String? {
-        guard let deviceMotion = deviceMotion else { return nil}
+        var value: Double = 0.0
+        guard let deviceMotion = deviceMotion else { return "\(value)" }
+        
         switch motionSensor {
         case .acceleration:
-            let value = deviceMotion.userAcceleration.z
-            return "\(preciseRound(value, precision: .thousands))"
+            value = deviceMotion.userAcceleration.z
         case .gyroscope:
-            let value = deviceMotion.rotationRate.z
-            return "\(preciseRound(value, precision: .thousands))"
+            value = deviceMotion.rotationRate.z
         case .magneticField:
-            let value = deviceMotion.magneticField.field.z
-            return "\(preciseRound(value, precision: .thousands))"
+            value = deviceMotion.magneticField.field.z
         case .attitude:
-            let value = deviceMotion.attitude.yaw
-            return "\(preciseRound(value, precision: .thousands))"
+            value = deviceMotion.attitude.yaw
         case .gravity:
-            let value = deviceMotion.gravity.z
-            return "\(preciseRound(value, precision: .thousands))"
+            value = deviceMotion.gravity.z
         }
+        return "\(preciseRound(value, precisionDouble: 10000))"
     }
 }
 
