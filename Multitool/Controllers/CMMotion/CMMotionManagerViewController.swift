@@ -39,10 +39,11 @@ class CMMotionManagerViewController: UIViewController {
         tableView.backgroundColor = .lightYellow
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
-        tableView.isScrollEnabled = false
         tableView.separatorInset = .zero
         tableView.rowHeight = 110
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.isScrollEnabled = false
+        tableView.isUserInteractionEnabled = false
         tableView.register(MotionInfoViewCell.self, forCellReuseIdentifier: MotionInfoViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self

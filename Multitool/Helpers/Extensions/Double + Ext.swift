@@ -27,6 +27,6 @@ public func preciseRound(_ value: Double, precision: RoundingPrecision = .ones) 
     }
 }
 
-public func preciseRound(_ value: Double, precisionDouble: Double = 10) -> Double {
+public func preciseRound(_ value: Double, precisionDouble: Double = 10000) -> Double {
     return round(value * precisionDouble) / precisionDouble
 }
